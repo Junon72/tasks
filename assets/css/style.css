@@ -1,0 +1,688 @@
+/* Fo/* Font */
+@import url('https://fonts.googleapis.com/css?family=Public+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+/* Global*/
+ 
+:root {
+    /*Cyan deriv. */
+    --clr-dark: rgb(105, 134, 140);
+    --clr-middle: rgb(163, 196, 201);
+    --clr-light: rgb(224, 230, 231);
+    /*Text*/
+    --clr-mainDark: #13181B;
+    --clr--mainLight: #949a9f;
+    --clr-title: #4a1d68;
+    --clr-purpleTitle: rgba(94, 1, 94);
+    --clr-time: #05c766;
+    --clr-success: #66C705;
+ 
+    /*Buttons*/
+    --clr-green: rgb(5, 199, 5);
+    --clr-purple: rgba(94, 1, 94, 0.7);
+    --clr-magenta: rgb(199, 5, 199);
+    --clr-add: rgb(3, 153, 240);
+    --clr-rec: rgb(199, 5, 5);
+    --clr-stop: rgb(1, 69, 143);
+    --clr-pause: rgb(199, 102, 5);
+    --clr-home: rgb(1, 134, 105);
+    --clr-out: #798187;
+}
+ 
+/* Universal selector style */
+*,
+*::before,
+*::after {
+    font-family: inherit;
+    box-sizing: border-box;
+}
+ 
+/* General body styling */
+body {
+    position: relative;
+    font-family: 'Public Sans', sans-serif;
+    /* Change later to limit the window on big screens - needs js*/
+ 
+    padding: 0;
+}
+ 
+/* General text styling */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+ 
+
+/*--------------------- Fixed Header ---------------------*/
+ 
+nav {
+    background: var(--clr-light);
+    z-index: 999;
+}
+ 
+#firstHeader {
+    height: 10rem;
+}
+ 
+.container-fluid {
+    padding: 0;
+}
+
+ 
+#nav-container {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+ 
+/* Navigation Icons */
+.home-container {
+    float: left !important;
+    align-items: center;
+    margin-top: 1em;
+    margin-left: 1em;
+}
+ 
+.out-container {
+    float: right !important;
+    align-items: center;
+    margin-top: 1em;
+    margin-right: 1em;
+}
+ 
+.fa-home {
+    font-size: 3.2em;
+    color: var(--clr-home);
+}
+ 
+.fa-sign-out {
+    font-size: 3.2em;
+    color: var(--clr-out);
+}
+ 
+/* Page Title */
+.page-title-container {
+    position: relative;
+    margin-top: 2.6rem;
+ 
+}
+ 
+.page-title-icon {
+    display: inline;
+    font-size: 1.6em;
+    color: var(--clr-dark);
+}
+ 
+.page-title h4 {
+    display: inline;
+    margin-right: 0.4em;
+    color: var(--clr-dark);
+    font-weight: 700;
+    font-size: 2em;
+}
+ 
+/* Title icons */
+ 
+#faRecTitle {
+    color: var(--clr-rec);
+ 
+}
+ 
+.fa-square {
+    color: var(--clr-stop);
+}
+ 
+/* Title */
+ 
+.title-container {
+    width: 100%;
+    display: block;
+    margin-top: 1em;
+    margin-left: 1em;
+}
+ 
+.project-title {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--clr-purpleTitle);
+}
+ 
+/* ------------------------ Fixed bottom ---------------------*/
+.fixed-bottom {
+    z-index: 999;
+}
+ 
+.actions-container {
+    position: relative;
+    flex-flow: row;
+    display: block;
+    text-align: center;
+    margin: 1em 0;
+    padding: 0;
+ 
+}
+ 
+.nav-container-bottom {
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+}
+ 
+.back-container {
+    align-items: center;
+    height: 1.6rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+ 
+}
+ 
+.forward-container {
+    align-items: center;
+    height: 1.6rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+ 
+}
+ 
+.fa-chevron-left,
+.fa-chevron-right {
+    font-size: 1.6rem;
+    color: var(--clr--mainLight);
+ 
+}
+ 
+/* Action icons */
+ 
+.action {
+    font-size: 2.8em;
+    padding: 0;
+    margin-right: 1rem;
+}
+ 
+.fa-pause-circle {
+    color: var(--clr-pause);
+    font-size: 2.4rem;
+ 
+}
+ 
+.fa-stop-circle {
+    color: var(--clr-stop);
+    font-size: 2.4rem;
+}
+ 
+#faRecButton {
+    color: var(--clr-rec);
+    font-size: 2.4rem;
+}
+ 
+.fa-check-circle {
+    color: var(--clr-green);
+    font-size: 2.4rem;
+}
+ 
+/*-----------Buttons----------*/
+/* Tasks Page - Start project button*/
+
+
+
+/*  moved to script.js #projectReset */
+ 
+ 
+.start-button {
+    font-size: 1.2rem;
+    font-weight: 200;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+ 
+.pause {
+    position: absolute;
+    right: 5rem;
+    padding: 0 1rem;
+}
+ 
+.stop {
+    padding: 0 1rem;
+    position: absolute;
+    right: 0;
+}
+ 
+/* -------------------------- Main Content ---------------------------*/
+ 
+.main-container {
+    position: relative;
+    margin-top: 10.5em;
+    margin-bottom: 8em;
+    margin-left: 1em;
+    margin-right: 1em;
+    overflow: auto;
+}
+ 
+/*--------------------- Index ------------------------------- */
+ 
+.index-page-title {
+    position: relative;
+}
+ 
+.mytime { /* Page title text */
+    position: absolute;
+    top: 0;
+    font-size: 6em;
+    color: white;
+    font-size: 900;
+ 
+}
+ 
+.index-main-container {
+    position: relative;
+    margin: 10em 1em 1em;
+    height: 50vh;
+    overflow: auto;
+    text-align: center;
+}
+ 
+.hourClassFull {
+    display: block;
+}
+ 
+.hour-class-home {
+    text-align: center;
+}
+ 
+#hGlassFull {
+    color: var(--clr-purple);
+    font-size: 13em;
+    text-align: center;
+}
+
+/* Form */
+
+.newProjectForm { /* Project creation field */
+    margin-bottom: 7.5em;
+}
+ 
+#newProject { /* New MyTime Project: title */
+    color: var(--clr-purpleTitle);
+    font-weight: 200;
+    font-size: 1.4em;
+    margin-bottom: 0;
+    padding-left: .3rem;
+}
+ 
+.new-projectName>p { /* name display text */
+    padding: 0;
+    color: var(--clr-purple);
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    font-weight: 400;
+ 
+}
+ 
+/* form display */
+
+/* Button styles */
+#create-project-button button,
+#projectReset button {
+    font-size: 1.2rem;
+    padding: .375rem .75rem;
+}
+ 
+#accept-project { /* name display & Cancel button field */
+    display: none;
+}
+ 
+#create-project-form { /* name input & Enter button field */
+    display: flex;
+}
+ 
+.accept-project#projectReset { /* Cancel button on accept-project field */
+    order: 2;
+}
+ 
+.accept-project#project-name-display { /* Name display on accept-project field */
+    order: 1;
+}
+
+/* No Name Prompt */
+
+#noNamePrompt {
+    display: none;
+    position: absolute;
+    background-color: rgb(199, 102, 5, .4);
+    border: 1px solid rgb(199, 102, 5, .6);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    height: 20rem;
+    max-width: 20rem;
+    border-radius: 50%;
+    z-index: 800;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+
+#messageOk {
+    position: relative;
+    display: block;
+    margin: 43% auto 6%;
+    padding: 0 auto;
+    width: auto;
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 200;
+}
+.ok {
+    position: relative;
+    justify-content: center;
+    color: white;
+    font-size: 1.4em;
+    font-weight: 200;
+    background-color: rgba(241,174, 105);
+    border: 1px solid white;
+    padding: 0;
+    margin: .2rem 7.2rem;
+    border-radius: 8%;
+    -webkit-border-radius: 8%;
+    -moz-border-radius: 8%;
+    -ms-border-radius: 8%;
+    -o-border-radius: 8%;
+}
+
+
+#nameOK {
+    background-color: none;
+    margin: auto;
+}
+
+
+/*---------------------------- Tasks -------------------------*/
+ 
+ 
+.tasks-container h5 { /* task titles - default & new */
+    color: var(--clr--mainLight);
+    margin-top: .5em;
+    margin-bottom: .8em;
+    font-weight: 400;
+    font-size: 1.2em;
+    letter-spacing: 1.4px;
+    font-style: italic;
+    font-weight: 500i;
+    overflow: visible;
+}
+
+
+.defaults-container-top { /* defaults field */
+    top: 9.58rem;
+    background-color: white;
+}
+.newTasks { /* new tasks display field */
+    overflow: scroll;
+    margin-top: 10.3rem;
+    
+}
+
+.tasksForm { /* new tasks creation field */
+    bottom: 8rem;
+}
+/* Form container*/
+ 
+.create-tasks { /* new tasks inside form field */
+    margin-top: 2em;
+}
+ 
+/* Add/Remove Tasks */
+ 
+#defaultTitle { /* Title - Default Tasks */
+    margin-bottom: .6rem;
+ 
+}
+ 
+#createTitle { /* Title - New Project Tasks */
+    margin-bottom: .8rem;
+}
+ 
+ 
+#showTasks { /* New Task button */
+    margin: 1.2em 0 0;
+    background-color: rgb(3, 153, 240);
+    padding: 4px 6px;
+    color: white;
+    font-size: 1.1em;
+    font-weight: 200;
+}
+
+ 
+.task-input input{ /* input field for new tasks */
+    width: 100%;
+    height: 2.4rem;
+    margin: 0;
+}
+ 
+/* Add /Remove Button */
+ 
+.task-button { /* add + button and remove - button */
+    padding: 0;
+}
+ 
+.task-icon { /* + & - */
+   
+    font-size: 2.4rem;
+    color: rgb(3, 153, 240);
+}
+ 
+/* List Element Style */
+
+#taskList { /* default task ul*/
+    margin-left: 0;
+    margin-bottom: .6rem;
+}
+
+#taskList > li { /* default task li */
+    list-style-type: none;
+    margin-bottom: .8rem;
+    color: var(--clr-title);
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+#taskItems { /* new tasks ul */
+    margin-left: 0;
+    padding-left: 0;
+}
+
+li.taskItem { /* new tasks li */
+    width: 100%;
+    list-style-type: none;
+    height: 2.4rem;
+    margin-bottom: 1rem;
+    color: var(--clr-title);
+    font-size: 1.2em;
+    font-weight: 500;
+    overflow: hidden;
+}
+
+.taskName {
+    margin-top: .2rem;
+    float: left;
+}
+
+.remove { /* remove - button */
+    float: right;
+    background-color: transparent;
+
+}
+ 
+/* Name Is Empty String Prompt */
+
+.noName {
+    display: none;
+    background-color: rgb(232, 194, 164);
+    border: 1px solid rgb(199, 102, 5, .5);
+    text-align: center;
+    margin: 0 auto;
+    bottom: 20rem;
+    height: 10rem;
+    width: 80%;
+    border-radius: 2%;
+    z-index: 999;
+    -webkit-border-radius: 2%;
+    -moz-border-radius: 2%;
+    -ms-border-radius: 2%;
+    -o-border-radius: 2%;
+}
+
+
+#tryAgainOk {
+    position: relative;
+    display: block;
+    margin: 2rem auto 1rem;
+    padding: 0 auto;
+    width: auto;
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 200;
+}
+.taskOk {
+    position: relative;
+    justify-content: center;
+    color: white;
+    font-size: 1.4em;
+    font-weight: 200;
+    background-color: rgba(253, 142, 32, 0.4);
+    border: 1px solid white;
+    padding: 0 1rem;
+    margin: .2rem 7.2rem;
+    border-radius: 8%;
+    -webkit-border-radius: 8%;
+    -moz-border-radius: 8%;
+    -ms-border-radius: 8%;
+    -o-border-radius: 8%;
+}
+
+
+#taskNameOK {
+    background-color: none;
+    margin: auto;
+}
+
+
+/*--------------------------- Recording ---------------------------*/
+.projectTimeDisplay {
+    background-color: white;
+}
+ 
+.projectTimeDisplay .rec-title-container {
+    padding: 0;
+    margin-top: .7em;
+}
+ 
+.projectTime {
+    flex-flow: column;
+ 
+}
+ 
+ 
+.projectTime>h6 {
+    padding: 0 1rem 0 1.2rem;
+    color: var(--clr--mainLight);
+    font-weight: 300;
+    font-size: 1rem;
+}
+ 
+.projectTime>p {
+    padding: 0 1rem 0 1.7rem;
+    color: var(--clr-purple);
+    font-style: italic;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+}
+ 
+.rec-project-title {
+    margin-left: 1rem;
+ 
+    color: var(--clr-purple);
+}
+ 
+.projectClockDisplay {
+    position: relative;
+    text-align: end;
+    margin-left: 1em;
+    font-size: 1.4em;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--clr-time);
+    opacity: .4;
+    letter-spacing: 1px;
+}
+ 
+.projectClockDisplay>p {
+    padding-top: .4em;
+}
+ 
+.date-container {
+    margin: .7em 1em;
+}
+ 
+.dateHeader {
+    display: flex;
+    float: right;
+    color: var(--clr-time);
+    font-size: 1.2em;
+    font-weight: 900;
+    font-style: italic;
+    opacity: .3;
+ 
+}
+ 
+/* Tasks */
+ 
+.tasksHeader {
+    margin: 2.8rem 0 1rem;
+    color: var(--clr--mainLight);
+    font-size: 1.2em;
+    font-style: italic;
+    letter-spacing: 1.4px;
+    font-weight: 400;
+ 
+}
+ 
+.recTask {
+    flex-flow: row;
+    margin: .4rem 0 0;
+    padding: 0;
+}
+ 
+.recTask>p.taskTime {
+    margin-bottom: 0;
+    padding: .3rem 1rem 0 2rem;
+    ;
+    color: var(--clr-purple);
+    font-size: 1.15rem;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+ 
+.recTaskButton {
+    background-color: var(--clr-green);
+ 
+}
+ 
+.defaults-container {
+    position: relative;
+    margin: 0 1rem 9em;
+}
+
+

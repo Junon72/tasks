@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create tasks</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        type="text/css" />
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/tasksScript.js"></script>
+</head>
+
+<body>
+    <!-- Fixed header / Navigation -->
+    <nav class="navbar navbar-default fixed-top p-0">
+        <div class="container-fluid nav-container-top">
+            <!-- Navigation Icons -->
+            <div class="nav navbar-nav navbar-left home-container">
+                <a href="index.html" target="blank_"><span class="fa-icon"><i class="fa fa-home"
+                            aria-hidden="true"></i></span></a>
+            </div>
+            <div class="nav navbar-nav navbar-center page-title-container">
+                <!-- Page Title -->
+                <div class="page-title">
+                    <h4>Tasks</h4>
+                    <i class="fa fa-hourglass-start page-title-icon" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="nav navbar-nav navbar-right out-container">
+                <a href="exit.html" target="blank_"><span class="fa-icon"><i class="fa fa-sign-out"
+                            aria-hidden="true"></i></span></a>
+            </div>
+        </div>
+        <!-- Project Title -->
+        <div class="title-container">
+            <h4 class="project-title"></h4>
+        </div>
+    </nav>
+    <!-- Main content -->
+    <div class="main-container">
+        <div class="tasks-container mt-0">
+            <!-- Default Tasks List -->
+            <div class="defaults-container-top fixed-top ml-3 mr-3">
+                <h5 class="tasksTitles" id="defaultTitle">Default tasks:</h5>
+                <ul id="taskList" class="p-0">
+                    <li class="col-12 p-0">Break</li>
+                    <li class="col-12 p-0">Lunch</li>
+                    <hr>
+                </ul>
+                <h5 class="tasksTitles" id="createTitle">New project tasks:</h5>
+            </div>
+            <!-- Create tasks container -->
+            <div class="newTasks h-100 w-100 d-block">
+                <!-- Tasks List -->
+                <ul id="taskItems" class="newItems p-0">
+
+                </ul>
+            </div>
+            <!--Add/Remove Tasks-->
+            <div class="tasksForm fixed-bottom ml-3 mr-3" id="createTasks">
+                <form id="newTaskForm">
+                    <div class="create-tasks d-flex">
+                        <button type="submit" class="btn btn-default task-button" id="addTask"
+                            data-toggle="tooltip" title="Add a new task"><i class="fa fa-plus-circle task-icon"
+                                aria-hidden="true"></i></button>
+                        <input type="text" class="task-input col" id="nameInput" placeholder="Task name"
+                            name="task"/> 
+                    </div>
+                </form>
+                <div id="newTaskButton"><button class="btn btn-default" id="showTasks">New Task</button></div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Name Is Empty String Prompt -->
+    <div class="noName w-90 fade show" id="emptyNamePrompt">
+            <div class="row justify-content-center no-gutters">
+                <div class="col-12" id="tryAgainOk">Give your task a name</div>
+                <button type="button" id="taskNameOk" class="btn btn-default-light d-block" aria-label="Close">
+                   <p class="taskOk">OK</p>
+                </button>
+        </div>
+    </div>
+    <!-- Fixed footer / Actions / Navigation -->
+    <footer>
+        <nav class="navbar navbar-default fixed-bottom p-0">
+            <!-- Action buttons-->
+            <div class="d-flex col justify-content-center actions-container">
+                <a class="p-0 ml-0 mr-0 w-100" href="tasks.html" target="blank_"><button type="button"
+                        class="btn btn-success start-button w-100 m-0" id="save-tasks">Start Project</button></a>
+            </div>
+            <!-- Bottom-navigation -->
+            <div class="container-fluid nav-container-bottom w-100 p-0">
+                <div class="nav navbar-nav navbar-left back-container">
+                    <a href="index.html"><i class="fa fa-chevron-left menu-icons" aria-hidden="true"></i></a>
+                </div>
+                <div class="nav navbar-nav navbar-right forward-container">
+                    <a href="record.html"><i class="fa fa-chevron-right menu-icons" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </nav>
+    </footer>
+</body>
+
+</html>
