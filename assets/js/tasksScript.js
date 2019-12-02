@@ -88,19 +88,14 @@ $(document).ready(function setProject() {
     $('#showTasks').on('click', () => {
         $newTaskButton.hide();
         $newTaskForm.show();
-        $('.newTasks').scrollTop($('.newTasks')[0].scrollHeight);
     });
 
 
     /* Removing Tasks */
 
-    $("#removeTask").on('submit', (e) => {
-        e.preventDefault();
-        $(this).remove(".task");
-    });
 
 
-    /* enable/ able */
+    /* No Name Prompt */
 
 
     function emptyNamePrompt() {
