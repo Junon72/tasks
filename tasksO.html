@@ -38,8 +38,7 @@
                 </div>
             </div>
             <div class="nav navbar-nav navbar-right out-container">
-                <a id="emptyLocal"><span class="fa-icon"><i class="fa fa-sign-out"
-                            aria-hidden="true"></i></span></a>
+                <a id="emptyLocal"><span class="fa-icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span></a>
             </div>
         </div>
         <!-- Project Title -->
@@ -74,16 +73,18 @@
         <form id="newTaskForm">
             <div class="create-tasks d-flex">
                 <button type="submit" class="btn btn-default task-button" id="addTask" data-toggle="tooltip"
-                    title="Add a new task"><i class="fa fa-plus-circle task-icon" aria-hidden="true"></i></button>
+                    title="Add a new task">
+                    <i class="fa fa-plus-circle task-icon" aria-hidden="true"></i>
+                </button>
                 <input type="text" class="task-input col" id="nameInput" placeholder="Task name" name="task" />
             </div>
         </form>
-        <form id="newTaskButton"><button type="button" class="btn btn-default" id="showTasks">New Task</button></form>
-
+        <form id="newTaskButton">
+            <button type="button" class="btn btn-default" id="showTasks">New Task</button>
+        </form>
     </div>
 
-
-    <!-- Name Is Empty String Prompt -->
+    <!-- Name Is Empty String Prompt 
     <div class="noName w-90 fade fixed-bottom show" id="emptyNamePrompt">
         <div class="row justify-content-center no-gutters">
             <div class="col-12" id="tryAgainOk">Give your task a name</div>
@@ -91,14 +92,23 @@
                 <p class="taskOk">OK</p>
             </button>
         </div>
-    </div>
+    </div>-->
     <!-- Fixed footer / Actions / Navigation -->
     <footer>
+        <!-- Name Is Empty String Prompt -->
+    <div class="noName w-90 fade fixed-bottom show" id="emptyNamePrompt">
+            <div class="row justify-content-center no-gutters">
+                <div class="col-12" id="tryAgainOk">Give your task a name</div>
+                <button type="button" id="taskNameOk" class="btn btn-default-light d-block" aria-label="Close">
+                    <p class="taskOk">OK</p>
+                </button>
+            </div>
+        </div>
         <nav class="navbar navbar-default fixed-bottom p-0">
             <!-- Action buttons-->
             <div class="d-flex col justify-content-center actions-container">
                 <a class="p-0 ml-0 mr-0 w-100 navLink" id="toRecord"><button type="button"
-                     class="btn btn-success start-button w-100 m-0" id="save-tasks">Start Project</button></a>
+                        class="btn btn-success start-button w-100 m-0" id="save-tasks">Start Project</button></a>
             </div>
             <!-- Bottom-navigation -->
             <div class="container-fluid nav-container-bottom w-100 p-0">
