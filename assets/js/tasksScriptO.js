@@ -38,11 +38,14 @@ $(document).ready(function setProject() {
     // setting the start project button activation function
 
     function activateStartRecordingButton() {
-        $("#toRecord").attr("href", "tasksOO.html");
+        $("#toRecord").attr("href", "recordO.html");
         $('#save-tasks').css({
             "cursor": "pointer",
             "background-color": "var(--clr-green)",
             "border-color": "rgb(30,126,52)"
+        });
+        $('#save-tasks').on('click', ()=> {
+            setupRecord();
         });
     };
 
@@ -53,6 +56,7 @@ $(document).ready(function setProject() {
             "background-color": "rgb(5, 199, 5, .3",
             "border-color": "var(--clr-green)"
         });
+        $('#save-tasks').off('click');
     };
 
     //--------------------------------------------------------------------------------//
@@ -67,7 +71,7 @@ $(document).ready(function setProject() {
         localStorage.clear();
         let localState = localStorage;
         console.log(localState)
-    })
+    });
 
 
 
@@ -91,13 +95,16 @@ $(document).ready(function setProject() {
 
     // get task item from the localStorage
     var data = localStorage.getItem("TASKS");
-
     var taskLIST = JSON.parse(data);
+    
+    
+    
+    
     // before entering anything new - check the state of the localStorage
     // if there is a list already existing, render it to the tasks display ($taskItems)
 
     (function () {
-        time = new Date();
+        time = Date();
         var initTasks = time.toLocaleString();
         if (!taskLIST) {
             console.log(initTasks);
@@ -106,6 +113,7 @@ $(document).ready(function setProject() {
             console.log('Task list is empty');
             deactivateStartRecordingButton();
         } else {
+            added = time.toLocaleString();
             console.log('At ' + added);
             console.log('Following task item entries were added to the task list from local storage');
             console.table(taskLIST);
@@ -113,6 +121,8 @@ $(document).ready(function setProject() {
         };
     })();
 
+    // before entering anything new - check the state of the localStorage
+    // if there is a list already existing, render it to the tasks display ($taskItems)
     if (data) {
         taskLIST = JSON.parse(data); // translate the JSON back to code
         id = Date.now().toString();
@@ -210,7 +220,7 @@ $(document).ready(function setProject() {
             //addToTasks(task, id, 0, false, 0, 0, 0, 0, false);
             addToTasks(task, id, 0, 0, 0, 0, 0, false);
 
-            taskLIST.push({ // List object to push each task to taskLIST
+           taskLIST.push({ // List object to push each task to taskLIST
                 name: task,
                 id: id,
                 added: added,
@@ -273,4 +283,7 @@ $(document).ready(function setProject() {
     };
 
 
+function setupRecord() {
+    console.log('Record project setup successful');
+};
 });
