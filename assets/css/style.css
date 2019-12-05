@@ -21,6 +21,8 @@
     --clr-magenta: rgb(199, 5, 199);
     --clr-add: rgb(3, 153, 240);
     --clr-rec: rgb(199, 5, 5);
+    --clr-active: rgb(197, 62, 21);
+    --clr-hoverRec: rgb(197, 62, 21, .5);
     --clr-stop: rgb(1, 69, 143);
     --clr-pause: rgb(199, 102, 5);
     --clr-home: rgb(1, 134, 105);
@@ -524,6 +526,23 @@ li.taskItem { /* new tasks li */
 
 }
  
+/* Name Is Duplicate Prompt */
+#tryAnotherOk {
+    position: relative;
+    display: block;
+    margin: 2rem auto 1rem;
+    padding: 0 auto;
+    width: auto;
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 200;
+}
+
+#newNameOK {
+    background-color: none;
+    margin: auto;
+}
+
 /* Name Is Empty String Prompt */
 
 .noName {
@@ -649,7 +668,7 @@ li.taskItem { /* new tasks li */
 /* Tasks */
  
 .tasksHeader {
-    margin: 2.8rem 0 1rem;
+    margin: 2rem 0 1rem;
     color: var(--clr--mainLight);
     font-size: 1.2em;
     font-style: italic;
@@ -675,14 +694,38 @@ li.taskItem { /* new tasks li */
     letter-spacing: 1px;
 }
  
-.recTaskButton {
+.btn-success {
     background-color: var(--clr-green);
- 
+    border-style: none;
+    box-shadow: none;
 }
- 
+
+.btn-success:hover {
+    background-color: rgb(5, 199, 5, .3);
+    border-style: none;
+    box-shadow: none;
+}
+
+ .recTaskButton {
+    
+    font-weight: 800;
+    color: var(--clr-rec);
+    font-size: 1.3rem;
+ }
+
+ .recTaskButton:hover {
+   
+    font-weight: 800;
+    color: var(--clr-rec);
+ }
+
 .defaults-container {
     position: relative;
     margin: 0 1rem 9em;
 }
 
-
+/* Toggle rec 
+.recording {
+    background-color: var(--clr-rec);
+}
+*/

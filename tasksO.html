@@ -96,7 +96,7 @@
     <!-- Fixed footer / Actions / Navigation -->
     <footer>
         <!-- Name Is Empty String Prompt -->
-    <div class="noName w-90 fade fixed-bottom show" id="emptyNamePrompt">
+        <div class="noName w-90 fade fixed-bottom show" id="emptyNamePrompt">
             <div class="row justify-content-center no-gutters">
                 <div class="col-12" id="tryAgainOk">Give your task a name</div>
                 <button type="button" id="taskNameOk" class="btn btn-default-light d-block" aria-label="Close">
@@ -104,6 +104,16 @@
                 </button>
             </div>
         </div>
+        <!-- Name is duplicate -->
+        <div class="noName w-90 fade fixed-bottom show" id="duplicateNamePrompt">
+            <div class="row justify-content-center no-gutters">
+                <div class="col-12 wasDuple" id="tryAnotherOk">Task name already exists.</div>
+                <button type="button" id="newNameOk" class="btn btn-default-light d-block" aria-label="Close">
+                    <p class="taskOk">OK</p>
+                </button>
+            </div>
+        </div>
+        <!-- Bottom navigation -->
         <nav class="navbar navbar-default fixed-bottom p-0">
             <!-- Action buttons-->
             <div class="d-flex col justify-content-center actions-container">

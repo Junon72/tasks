@@ -1,6 +1,7 @@
 $(document).ready(function setProject() {
 
-
+    /* --------------------------- task.html page --------------------------- */
+    /* STYLES */
 
     /*Styles*/
     // save project button
@@ -18,7 +19,7 @@ $(document).ready(function setProject() {
         "box-shadow": "none"
     });
 
-
+    /* SET UP PROJECT TO ADD TASKS */
     // setting the project name title
     let project;
     if (localStorage.getItem('project')) {
@@ -44,9 +45,9 @@ $(document).ready(function setProject() {
             "background-color": "var(--clr-green)",
             "border-color": "rgb(30,126,52)"
         });
-        $('#save-tasks').on('click', ()=> {
-            setupRecord();
-        });
+       //$('#save-tasks').on('click', () => {
+            //setupRecord();
+        //});
     };
 
     function deactivateStartRecordingButton() {
@@ -74,7 +75,7 @@ $(document).ready(function setProject() {
     });
 
 
-
+    // Dynamic list with local storage - https://www.taniarascia.com/how-to-use-local-storage-with-javascript/
     // Selected elements
 
     const $newTaskButton = $('#newTaskButton'); // Initiates a new task entry
@@ -82,7 +83,9 @@ $(document).ready(function setProject() {
     const $nameInput = $('input:text'); // IS var task
 
     const $emptyName = $('#emptyNamePrompt'); // Prompt message when task input field is empty 
+    const $dupleName = $('#duplicateNamePrompt'); // Prompt message when task name already exists in a list 
     const $taskItems = $('#taskItems'); // <ul> element to display list of new tasks - taskLIST
+
 
 
     // Beginning setup of the task form
@@ -90,16 +93,15 @@ $(document).ready(function setProject() {
     $newTaskButton.hide();
 
     // Variables
-    var taskLIST, id, added;
+    var id, added, task;
     var time = Date();
 
     // get task item from the localStorage
     var data = localStorage.getItem("TASKS");
     var taskLIST = JSON.parse(data);
-    
-    
-    
-    
+
+
+
     // before entering anything new - check the state of the localStorage
     // if there is a list already existing, render it to the tasks display ($taskItems)
 
@@ -124,10 +126,10 @@ $(document).ready(function setProject() {
     // before entering anything new - check the state of the localStorage
     // if there is a list already existing, render it to the tasks display ($taskItems)
     if (data) {
-        taskLIST = JSON.parse(data); // translate the JSON back to code
         id = Date.now().toString();
         added = time.toLocaleString();
         loadTasks(taskLIST, id); // load the tasks to the display
+        console.log(data);
     } else {
         taskLIST = []; // if no tasks, set taskLIST to an empty array
         id = Date.now().toString();
@@ -155,7 +157,7 @@ $(document).ready(function setProject() {
             '<li class="taskItem justify-content-between">' +
             '<p class="taskName">' + task +
             '</p>' +
-            '<button type="submit" class="btn btn-default remove task-button" data-toggle="tooltip"  title="Remove task" id="' + id + '">' +
+            '<button type="submit" class="btn btn-default remove task-button" data-toggle="tooltip"  title="Remove task">' +
             '<i class="fa fa-minus-circle task-icon">' +
             '</i>' +
             '</button>' +
@@ -167,10 +169,10 @@ $(document).ready(function setProject() {
             $(event.target).remove();
             const targetTask = taskLIST.find(xitem => xitem.id === storageKey);
 
-
             const location = taskLIST.indexOf(targetTask);
             console.log('Confirming the activated element id ' + storageKey + ' is the localStorage key for the task entry ' + targetTask.name);
             console.log('Confirming entry name ' + targetTask.name + ' with entry id ' + targetTask.id + ' at index location ' + location + ' was removed!');
+            console.log(targetTask);
             // Removed code block was used to test the target
             //targetTask['axed'] = true; 
             //console.table(taskLIST);
@@ -183,7 +185,7 @@ $(document).ready(function setProject() {
                 deactivateStartRecordingButton();
 
             } else {
-                console.log('Current task items saved to the local storage after remove task item event.');
+                console.log('Current task items saved to the local storage after task item was removed.');
                 console.table(taskLIST);
             };
         });
@@ -198,20 +200,24 @@ $(document).ready(function setProject() {
 
     $newTaskForm.on('submit', (e) => {
         e.preventDefault();
-        var task = $nameInput.val();
-        task = jQuery.trim(task);
+        task = $nameInput.val();
+        task = jQuery.trim(task); // trims white space from front and back of the new name
+        task = task.charAt(0).toUpperCase() + task.slice(1); // Capitalizes the first letter
+
         if (task === null || task == "" || task.length === 0) {
             emptyNamePrompt();
             console.log('Name was not valid: name was empty string or no name was provided.');
+        } else if (isNameDuplicate() === true) {
+            nameIsDuplicatePrompt();
+            console.log('Name was not valid: name "' + task + '" already exists.');
         } else {
 
             function notify() { // notify if 'submit' event occurs and log the element id and class
                 console.log('New task entry ' + task + ' was submitted to the task list via ', (event.target))
             };
 
-            task = task.charAt(0).toUpperCase() + task.slice(1);
-
             notify();
+
             id = Date.now().toString();
             time = new Date();
             added = time.toLocaleString();
@@ -220,7 +226,7 @@ $(document).ready(function setProject() {
             //addToTasks(task, id, 0, false, 0, 0, 0, 0, false);
             addToTasks(task, id, 0, 0, 0, 0, 0, false);
 
-           taskLIST.push({ // List object to push each task to taskLIST
+            taskLIST.push({ // List object to push each task to taskLIST
                 name: task,
                 id: id,
                 added: added,
@@ -239,17 +245,28 @@ $(document).ready(function setProject() {
 
             //console.log('Current task items saved to the local storage after add event.');
             console.table(taskLIST);
-
-        }
+        };
     });
 
-
+    // display the new task button after submitting a task item to the list
 
     $('#showTasks').on('click', (e) => {
         e.preventDefault();
         $newTaskButton.hide();
         $newTaskForm.show();
     });
+
+    /* Is new task name a duplicate test */
+    // the test is referenced from https://www.tutorialrepublic.com/faq/how-to-check-if-an-array-includes-an-object-in-javascript.php
+
+    function isNameDuplicate() {
+
+        if (taskLIST.some(taskLIST => taskLIST.name === task)) {
+            return true;
+        } else {
+            return false;
+        }
+    };
 
 
     /* Empty Name Prompt */
@@ -259,7 +276,6 @@ $(document).ready(function setProject() {
         $emptyName.css({
             "display": "block"
         });
-
         $('#nameInput').css({
             "color": "red",
             "border-style": "none",
@@ -282,8 +298,31 @@ $(document).ready(function setProject() {
         });
     };
 
+    /* Duplicate name prompt */
 
-function setupRecord() {
-    console.log('Record project setup successful');
-};
+    function nameIsDuplicatePrompt() {
+        $dupleName.css({
+            "display": "block"
+        });
+        $('#nameInput').css({
+            "color": "red",
+            "border-style": "none",
+            "border-color": "none",
+            "background-color": "transparent"
+        });
+        $('#nameInput').prop("disabled", true);
+        $dupleName.on('click', function () {
+            $dupleName.css({
+                "display": "none"
+            })
+            $('input').css({
+                "color": "rgb(33, 37, 41)",
+                "border-style": "",
+                "border-color": "",
+                "background-color": ""
+            });
+            $('#nameInput').prop("disabled", false);
+            $nameInput.val('');
+        });
+    };
 });

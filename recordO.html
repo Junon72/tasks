@@ -13,6 +13,9 @@
         type="text/css" />
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/recordO.js"></script>
+
 </head>
 
 <body>
@@ -29,7 +32,7 @@
                 <div class="nav navbar-nav navbar-center page-title-container">
                     <!-- Page Title -->
                     <div class="page-title">
-                        <h4>Recording</h4>
+                        <h4>RecordingO</h4>
                         <i id="faRecTitle" class="fa fa-circle page-title-icon" aria-hidden="true"></i>
                     </div>
                 </div>
@@ -59,15 +62,18 @@
                     <h6 class="mb-0 headerTimeTitle">Elapsed</h6>
                     <p class="headerTime mb-1">00:00</p>
                 </div>
+                <hr>
             </div>
         </nav>
     </header>
     <!-- Main content -->
     <div class="main-container">
+          
         <h5 class="tasksHeader">Tasks:</h5>
         <div class="recTitles">
-            <ul>
-                <li class="col-12 d-flex recTask">
+            <ul id="recordTasks" class="p-0">
+                    <hr>
+                <!--<li class="col-12 d-flex recTask">
                     <button class="btn btn-success col-6 recTaskButton">Task 1</button>
                     <p class="startTaskTime taskTime col-3">00:00</p>
                     <p class="elapsedTaskTime taskTime col-3">00:00</p>
@@ -77,25 +83,28 @@
                     <button class="btn btn-success col-6 recTaskButton">Task 2</button>
                     <p class="startTaskTime taskTime col-3">00:00</p>
                     <p class="elapsedTaskTime taskTime col-3">00:00</p>
-                </li>
+                </li>-->
             </ul>
         </div>
 
     </div>
 
     <!-- Default Tasks-->
-    <div class="defaults-container">
-        <ul class="defaults-list">
+    <div class="defaults-container">  
+      
+        <h5 class="tasksHeader">Default tasks:</h5>
+        <ul id="recordDefaultTasks" class="defaults-list p-0">
+                <hr>
             <li class="col-12 d-flex recTask">
-                <button class="btn btn-success col-6 recTaskButton">Lunch</button>
-                <p class="startTaskTime taskTime col-3">00:00</p>
-                <p class="elapsedTaskTime taskTime col-3">00:00</p>
+                <button type="click" class="btn btn-success col-6">Lunch</button>
+                <p class="startTaskTime taskTime col-3"></p>
+                <p class="elapsedTaskTime taskTime col-3"></p>
             </li>
             <hr>
             <li class="col-12 d-flex recTask">
-                <button class="btn btn-success col-6 recTaskButton">Break</button>
-                <p class="startTaskTime taskTime col-3">00:00</p>
-                <p class="elapsedTaskTime taskTime col-3">00:00</p>
+                <button type="click" class="btn btn-success col-6">Break</button>
+                <p class="startTaskTime taskTime col-3"></p>
+                <p class="elapsedTaskTime taskTime col-3"></p>
             </li>
         </ul>
     </div>
