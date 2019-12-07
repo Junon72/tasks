@@ -22,7 +22,6 @@
     --clr-add: rgb(3, 153, 240);
     --clr-rec: rgb(199, 5, 5);
     --clr-active: rgb(197, 62, 21);
-    --clr-hoverRec: rgb(197, 62, 21, .5);
     --clr-stop: rgb(1, 69, 143);
     --clr-pause: rgb(199, 102, 5);
     --clr-home: rgb(1, 134, 105);
@@ -124,7 +123,7 @@ nav {
     margin-right: 0.4em;
     color: var(--clr-dark);
     font-weight: 700;
-    font-size: 2em;
+    font-size: 1.6em;
 }
  
 /* Title icons */
@@ -155,37 +154,30 @@ nav {
 }
  
 /* ------------------------ Fixed bottom ---------------------*/
-.fixed-bottom {
-    z-index: 999;
-}
- 
+
+
+
 .actions-container {
-    position: relative;
-    flex-flow: row;
-    display: block;
-    text-align: center;
-    margin: 1em 0;
+    text-align: left;
+    margin-top: .7rem;
+    margin-bottom: .5rem;;
     padding: 0;
  
 }
- 
-.nav-container-bottom {
-    margin: 0;
-    padding: 0;
-    bottom: 0;
-}
+
  
 .back-container {
-    align-items: center;
-    height: 1.6rem;
+    align-items: left;
+    height: 1.3rem;
     margin-bottom: 1rem;
-    margin-left: 1rem;
+    margin-top: 1rem;
+    padding-left: 1rem;
  
 }
  
 .forward-container {
-    align-items: center;
-    height: 1.6rem;
+    align-items: end;
+    height: 1.3rem;
     margin-bottom: 1rem;
     margin-right: 1rem;
  
@@ -193,7 +185,7 @@ nav {
  
 .fa-chevron-left,
 .fa-chevron-right {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     color: var(--clr--mainLight);
  
 }
@@ -228,11 +220,7 @@ nav {
 }
  
 /*-----------Buttons----------*/
-/* Tasks Page - Start project button*/
-
-
-
-/*  moved to script.js #projectReset */
+/* Tasks Page - Start project button -  moved to script.js #projectReset */
  
 
 .start-button {
@@ -412,38 +400,73 @@ nav {
 /*---------------------------- Tasks -------------------------*/
  
  
-.tasks-container h5 { /* task titles - default & new */
+.tasks-container h5 { /* task titles style - default & new */
     color: var(--clr--mainLight);
     margin-top: .5em;
     margin-bottom: .8em;
     font-weight: 400;
-    font-size: 1.2em;
+    font-size: 1em;
     letter-spacing: 1.4px;
     font-style: italic;
     font-weight: 500i;
-    overflow: visible;
+    overflow: auto;
 }
 
 
 .defaults-container-top { /* defaults field */
-    top: 9.58rem;
+    padding-top: 1rem;
+    top: 7.5rem;
     background-color: white;
+    z-index: 700;
 }
+
+/* ---------------------------- New tasks */
 .newTasks { /* new tasks display field */
     overflow: scroll;
-    margin-top: 10.3rem;
-    
 }
+
+.spacingContainerTop {
+    
+    display: block;
+    height: 7.4rem;
+}
+
+.spacingContainerBottom {
+    display: block;
+    height: 2.4rem;
+}
+
 
 .tasksForm { /* new tasks creation field */
     bottom: 8rem;
 }
-/* Form container*/
+/* ---------------------------- Form container*/
  
-.create-tasks { /* new tasks inside form field */
-    margin-top: 2em;
+.tasksForm { /* new tasks creation field */
+    background-color: white;
+    bottom: 6rem;
+    z-index: 700;
 }
  
+.create-tasks { /* new tasks from inside form field */
+    margin-top: .5rem;
+    padding-bottom: 1.5rem;
+}
+
+ .newTaskButtonContainer {
+    margin-top: .5rem;
+    padding-bottom: 1.5rem;
+}
+
+#showTasks { /* New Task button */
+    display: block;
+    margin: 1.2rem 0 0;
+    background-color: rgb(3, 153, 240);
+    padding: 4px 6px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 200;
+}
 /* Add/Remove Tasks */
  
 #defaultTitle { /* Title - Default Tasks */
@@ -472,7 +495,7 @@ nav {
     margin: 0;
 }
  
-/* Add /Remove Button */
+/* ---------------------------- Add /Remove Button */
  
 .task-button { /* add + button and remove - button */
     padding: 0;
@@ -484,7 +507,7 @@ nav {
     color: rgb(3, 153, 240);
 }
  
-/* List Element Style */
+/* ---------------------------- List Element Style */
 
 #taskList { /* default task ul*/
     margin-left: 0;
@@ -498,6 +521,7 @@ nav {
     font-size: 1.2em;
     font-weight: 500;
 }
+
 
 #taskItems { /* new tasks ul */
     margin-left: 0;
@@ -598,26 +622,38 @@ li.taskItem { /* new tasks li */
 
 
 /*--------------------------- Recording ---------------------------*/
+.mainRec {
+    z-index: 850;
+    padding-bottom: 3rem;
+}
+
+.defaults-container-bottom {
+    /*position: absolute;*/
+    bottom: -1.4rem;
+    padding: 0 1rem;
+    background-color: white;
+    z-index: 880;
+}
+
+.showDefaults{
+    bottom: 7.2rem;
+}
+
 .projectTimeDisplay {
     background-color: white;
-}
- 
-.projectTimeDisplay .rec-title-container {
-    padding: 0;
-    margin-top: .7em;
-}
- 
-.projectTime {
-    flex-flow: column;
- 
+    padding: 0 1em .5em;;
 }
  
  
-.projectTime>h6 {
-    padding: 0 1rem 0 1.2rem;
+ 
+.headerTimeTitle {
+    text-align: start;
+    margin: 0 auto;
+    padding: .3rem 1rem 0 1rem;
     color: var(--clr--mainLight);
     font-weight: 300;
-    font-size: 1rem;
+    font-size: .8em;
+    overflow: auto;
 }
  
 .projectTime>p {
@@ -625,42 +661,39 @@ li.taskItem { /* new tasks li */
     color: var(--clr-purple);
     font-style: italic;
     letter-spacing: 1px;
-    font-size: 1.1rem;
+    font-size: 1em;
 }
  
-.rec-project-title {
-    margin-left: 1rem;
- 
+.titleWrap {
+    white-space: nowrap;
+    overflow: visible;
+
+}
+
+#rec-project-title {
+    margin-top: 0;
     color: var(--clr-purple);
+
 }
  
 .projectClockDisplay {
-    position: relative;
-    text-align: end;
-    margin-left: 1em;
-    font-size: 1.4em;
-    font-weight: 900;
-    font-style: italic;
+    text-align: start;
+    font-size: 1.2em;
+    font-weight: 700;
     color: var(--clr-time);
     opacity: .4;
     letter-spacing: 1px;
 }
  
-.projectClockDisplay>p {
-    padding-top: .4em;
-}
  
-.date-container {
-    margin: .7em 1em;
-}
+
  
 .dateHeader {
     display: flex;
-    float: right;
+    float: left;
     color: var(--clr-time);
-    font-size: 1.2em;
-    font-weight: 900;
-    font-style: italic;
+    font-size: 1.6rem;
+    font-weight: 700;
     opacity: .3;
  
 }
@@ -668,64 +701,104 @@ li.taskItem { /* new tasks li */
 /* Tasks */
  
 .tasksHeader {
-    margin: 2rem 0 1rem;
+    margin: 1rem 0 1rem;
     color: var(--clr--mainLight);
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-style: italic;
     letter-spacing: 1.4px;
     font-weight: 400;
+    cursor: pointer;
+ 
+}
+
+.tasksHeaderTasks {
+    margin: 1rem 0 1rem;
+    color: var(--clr--mainLight);
+    font-size: 1.1em;
+    font-style: italic;
+    letter-spacing: 1.4px;
+    font-weight: 400;
+    cursor: pointer;
  
 }
  
 .recTask {
+    display: flex;
     flex-flow: row;
     margin: .4rem 0 0;
     padding: 0;
 }
  
 .recTask>p.taskTime {
-    margin-bottom: 0;
-    padding: .3rem 1rem 0 2rem;
-    ;
+    text-align: center;
+    margin: auto;
+    padding: .3rem 1rem 0 1rem;
     color: var(--clr-purple);
-    font-size: 1.15rem;
+    font-size: 1em;
     font-weight: 400;
-    font-style: italic;
     letter-spacing: 1px;
+    transition: ease-in;
+    -webkit-transition: ease-in;
+    -moz-transition: ease-in;
+    -ms-transition: ease-in;
+    -o-transition: ease-in;
+}
+
+.recTask>p.timeColor {
+    color: var(--clr-rec);
+    transition: ease-in;
+    -webkit-transition: ease-in;
+    -moz-transition: ease-in;
+    -ms-transition: ease-in;
+    -o-transition: ease-in;
 }
  
-.btn-success {
+.btn.btn-success {
     background-color: var(--clr-green);
     border-style: none;
     box-shadow: none;
+    font-weight: 300;
+    transition: ease-in;
+    -webkit-transition: ease-in;
+    -moz-transition: ease-in;
+    -ms-transition: ease-in;
+    -o-transition: ease-in;
 }
 
-.btn-success:hover {
+.btn.btn-success:active, 
+.btn.btn-success:hover {
     background-color: rgb(5, 199, 5, .3);
     border-style: none;
     box-shadow: none;
+    font-weight: 300;
+    transition: ease-in;
+    -webkit-transition: ease-in;
+    -moz-transition: ease-in;
+    -ms-transition: ease-in;
+    -o-transition: ease-in;
 }
 
  .recTaskButton {
-    
-    font-weight: 800;
+    text-align: left;
+    font-weight: 300;
     color: var(--clr-rec);
-    font-size: 1.3rem;
- }
-
- .recTaskButton:hover {
-   
-    font-weight: 800;
-    color: var(--clr-rec);
- }
-
-.defaults-container {
-    position: relative;
-    margin: 0 1rem 9em;
+    font-size: 1.1rem;
+    transition: ease-in;
+    -webkit-transition: ease-in;
+    -moz-transition: ease-in;
+    -ms-transition: ease-in;
+    -o-transition: ease-in;
 }
 
-/* Toggle rec 
-.recording {
-    background-color: var(--clr-rec);
-}
-*/
+ .btn.recTaskButton:disabled {
+    font-weight: 300;
+    color: var(--clr-rec);
+    font-style: italic;
+    transition: ease-in;
+    -webkit-transition: ease-in;
+    -moz-transition: ease-in;
+    -ms-transition: ease-in;
+    -o-transition: ease-in;
+ }
+
+

@@ -19,8 +19,8 @@ $(document).ready(function setProject() {
         "box-shadow": "none"
     });
 
-    /* SET UP PROJECT TO ADD TASKS */
-    // setting the project name title
+    /* SETUP PROJECT TITLE FOR ADD TASKS */
+    // get the project name title
     let project;
     if (localStorage.getItem('project')) {
         project = localStorage.getItem('project')
@@ -204,6 +204,8 @@ $(document).ready(function setProject() {
         task = jQuery.trim(task); // trims white space from front and back of the new name
         task = task.charAt(0).toUpperCase() + task.slice(1); // Capitalizes the first letter
 
+                // validation of the provided entry - null or empty string/ duplicate name
+
         if (task === null || task == "" || task.length === 0) {
             emptyNamePrompt();
             console.log('Name was not valid: name was empty string or no name was provided.');
@@ -231,10 +233,10 @@ $(document).ready(function setProject() {
                 id: id,
                 added: added,
                 //axed: false,
-                start: 0,
-                end: 0,
-                elapsed: 0,
-                breaks: 0,
+                start: '00:00',
+                end: '00:00',
+                elapsed: '00:00',
+                breaks: '00:00',
                 defaults: false
             });
 
